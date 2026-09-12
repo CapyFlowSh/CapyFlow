@@ -3,8 +3,8 @@ import subprocess
 import tempfile
 import os
 import threading
-import webview
-
+import time
+import webbrowser
 
 app = Flask(__name__)
 
@@ -71,20 +71,34 @@ def executar():
             pass
 
 
-def start_flask():
-    app.run(host="127.0.0.1", port=6060, debug=False, use_reloader=False)
+def abrir_firefox():
+    """Aguarda o servidor subir e abre o Firefox."""
+    time.sleep(1.5)  # pequena espera para garantir que o Flask está pronto
+    url = "http://127.0.0.1:6060"
+    try:
+        # Tenta abrir especificamente no Firefox
+        subprocess.Popen(['firefox', url])
+    except FileNotFoundError:
+        # Fallback: tenta localizar firefox em caminhos comuns
+        fallbacks = [
+            '/usr/bin/firefox',
+            '/usr/local/bin/firefox',
+            '/snap/bin/firefox',
+            '/Applications/Firefox.app/Contents/MacOS/firefox',
+        ]
+        aberto = False
+        for caminho in fallbacks:
+            if os.path.exists(caminho):
+                subprocess.Popen([caminho, url])
+                aberto = True
+                break
+        if not aberto:
+            # Último recurso: usa o navegador padrão
+            webbrowser.open(url)
 
 
 if __name__ == '__main__':
-    # Inicia o Flask em uma thread separada
-    flask_thread = threading.Thread(target=start_flask, daemon=True)
-    flask_thread.start()
+    # Abre o Firefox em uma thread separada para não bloquear o Flask
+    threading.Thread(target=abrir_firefox, daemon=True).start()
 
-    # Abre a janela do pywebview apontando para o Flask
-    webview.create_window(
-        title="CapyFlow",
-        url="http://127.0.0.1:6060",
-        width=1000,
-        height=700
-    )
-    webview.start()
+    app.run(host="127.0.0.1", port=6060)
