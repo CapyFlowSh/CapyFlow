@@ -9,3 +9,9 @@ Dê uma olhada nos blocos no canto esquerdo. Existem várias categorias disponí
 Pegue um bloco e arraste-o para o bloco de início. Após adicionar seu primeiro bloco, adicione mais blocos para criar uma sequência de comandos.
 
 Essa sequência pode ser salva em um arquivo ".capy" pelo botão Salvar.
+
+# Executando scripts
+
+Após conseguir criar uma sequência funcional, clique no botão Executar.
+
+A saída dos comandos executados aparecerá no terminal, localizado no canto inferior direito do editor.
