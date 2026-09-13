@@ -1,10 +1,10 @@
-Exportando Projetos
+# Exportando Projetos
 
 Após criar um workflow no CapyFlow, você pode salvá-lo como um arquivo ".capy".
 
 Assim, o workflow não será perdido ao fechar o editor e poderá ser importado novamente no futuro.
 
-Como exportar
+## Como exportar
 
 No seu projeto:
 
@@ -14,7 +14,7 @@ No seu projeto:
 
 Depois, você poderá importar o arquivo novamente pelo botão Importar projeto.
 
-É permitido distribuir arquivos ".capy"?
+# É permitido distribuir arquivos ".capy"?
 
 Sim. Arquivos ".capy" podem ser distribuídos livremente.
 
