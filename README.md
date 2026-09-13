@@ -1,5 +1,5 @@
 # CapyFlow
-
+![logo do capy](logo.png)
 CapyFlow é uma ferramenta gráfica que permite a criação visual de shellscripts. ele vem com uma interface simples de usar e baseada em blocos.
 
 ## Capy
