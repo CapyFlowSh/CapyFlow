@@ -19,12 +19,8 @@ erro()  { echo -e "${VERMELHO}[ERRO]${NC} $*" >&2; }
 # Configurações
 # ----------------------------
 REPO_URL="https://github.com/pixelcatbr/CapyFlow.git"
-APP_NOME="CapyFlow"
-APP_ID="capyflow"
 DIR_INSTALACAO="$HOME/.local/share/capyflow"
 DIR_BIN="$HOME/.local/bin"
-DIR_APPS="$HOME/.local/share/applications"
-DESKTOP_DIR="$(xdg-user-dir DESKTOP 2>/dev/null || echo "$HOME/Desktop")"
 PYTHON_BIN="$(command -v python3 || true)"
 
 # ----------------------------
@@ -32,7 +28,6 @@ PYTHON_BIN="$(command -v python3 || true)"
 # ----------------------------
 info "Verificando dependências..."
 
-# git
 if ! command -v git >/dev/null 2>&1; then
     erro "git não encontrado. Instale com:"
     erro "  sudo apt install git    # Debian/Ubuntu"
@@ -41,7 +36,6 @@ if ! command -v git >/dev/null 2>&1; then
     exit 1
 fi
 
-# python3
 if [ -z "$PYTHON_BIN" ]; then
     erro "Python 3 não encontrado. Instale com:"
     erro "  sudo apt install python3 python3-pip    # Debian/Ubuntu"
@@ -49,7 +43,6 @@ if [ -z "$PYTHON_BIN" ]; then
     exit 1
 fi
 
-# flask
 if ! "$PYTHON_BIN" -c "import flask" 2>/dev/null; then
     aviso "Flask não encontrado. Tentando instalar via pip..."
     if "$PYTHON_BIN" -m pip install --user flask; then
@@ -65,7 +58,6 @@ fi
 # ----------------------------
 info "Criando diretórios..."
 mkdir -p "$DIR_BIN"
-mkdir -p "$DIR_APPS"
 
 # ----------------------------
 # Clonar (ou atualizar) o repositório
@@ -101,7 +93,6 @@ for candidato in app.py main.py capyflow.py server.py; do
     fi
 done
 
-# Fallback: primeiro .py com 'Flask(' dentro
 if [ -z "$APP_PY" ]; then
     APP_PY="$(grep -rl --include='*.py' 'Flask(' "$DIR_INSTALACAO" 2>/dev/null | head -n1 || true)"
 fi
@@ -115,67 +106,18 @@ fi
 ok "Arquivo principal detectado: $APP_PY"
 
 # ----------------------------
-# Instalar requirements (se existir)
-# ----------------------------
-if [ -f "$DIR_INSTALACAO/requirements.txt" ]; then
-    info "Instalando dependências de requirements.txt..."
-    "$PYTHON_BIN" -m pip install --user -r "$DIR_INSTALACAO/requirements.txt" \
-        || aviso "Algumas dependências falharam; prossiga com cautela."
-fi
-
-# ----------------------------
 # Criar binário local capyflow
 # ----------------------------
 info "Criando binário local capyflow..."
 
 cat > "$DIR_BIN/capyflow" <<BINEOF
 #!/usr/bin/env bash
-# CapyFlow - launcher
 cd "$DIR_INSTALACAO" || exit 1
 exec "$PYTHON_BIN" "$APP_PY" "\$@"
 BINEOF
 
 chmod +x "$DIR_BIN/capyflow"
 ok "Binário criado: $DIR_BIN/capyflow"
-
-# ----------------------------
-# Criar .desktop
-# ----------------------------
-info "Criando atalho .desktop..."
-
-DESKTOP_FILE_CONTENT="[Desktop Entry]
-Version=1.0
-Type=Application
-Name=CapyFlow
-Comment=Executor de shellscripts com interface web
-Exec=$DIR_BIN/capyflow
-Icon=utilities-terminal
-Terminal=false
-Categories=Development;Utility;
-StartupNotify=true
-"
-
-echo "$DESKTOP_FILE_CONTENT" > "$DIR_APPS/capyflow.desktop"
-chmod +x "$DIR_APPS/capyflow.desktop"
-
-# Atalho na área de trabalho
-if [ -d "$DESKTOP_DIR" ]; then
-    echo "$DESKTOP_FILE_CONTENT" > "$DESKTOP_DIR/capyflow.desktop"
-    chmod +x "$DESKTOP_DIR/capyflow.desktop"
-
-    # Marca como confiável (GNOME)
-    if command -v gio >/dev/null 2>&1; then
-        gio set "$DESKTOP_DIR/capyflow.desktop" metadata::trusted true 2>/dev/null || true
-    fi
-    ok "Atalho criado em: $DESKTOP_DIR/capyflow.desktop"
-else
-    aviso "Área de trabalho não encontrada em $DESKTOP_DIR (atalho só no menu)."
-fi
-
-# Atualiza cache do menu (se aplicável)
-if command -v update-desktop-database >/dev/null 2>&1; then
-    update-desktop-database "$DIR_APPS" 2>/dev/null || true
-fi
 
 # ----------------------------
 # Ajustar PATH (se necessário)
@@ -186,7 +128,7 @@ if [[ ":$PATH:" != *":$DIR_BIN:"* ]]; then
         if [ -f "$rc" ] && ! grep -q 'capyflow' "$rc"; then
             {
                 echo ''
-                echo '# CapyFlow'
+                echo '# capyflow'
                 echo 'export PATH="$HOME/.local/bin:$PATH"'
             } >> "$rc"
             ok "PATH adicionado em $rc (reabra o terminal)."
@@ -199,15 +141,12 @@ fi
 # ----------------------------
 echo
 ok "=========================================="
-ok " CapyFlow instalado com sucesso!"
+ok " capyflow instalado com sucesso!"
 ok "=========================================="
 echo
-info "Repositório:    $DIR_INSTALACAO"
-info "Arquivo main:   $APP_PY"
-info "Binário:        $DIR_BIN/capyflow"
-info "Atalho desktop: $DESKTOP_DIR/capyflow.desktop"
-info "Menu apps:      $DIR_APPS/capyflow.desktop"
+info "Repositório:  $DIR_INSTALACAO"
+info "Arquivo main: $APP_PY"
+info "Binário:      $DIR_BIN/capyflow"
 echo
-info "Execute com:    capyflow"
-info "Ou clique no ícone 'CapyFlow' na área de trabalho."
+info "Execute com:  capyflow"
 echo
