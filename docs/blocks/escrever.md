@@ -1,6 +1,4 @@
-docs/blocos/escrever.md
 
-```markdown
 # 📢 Escrever
 
 O bloco **Escrever** mostra um texto no terminal.
