@@ -12,7 +12,8 @@ temos támbem um mascote chamado capy, uma capivara que irá te ajudar a usar a 
 o projeto é MIT, leia o arquivo license para mais detalhes.
 
 ## Docs
-ainda não há docs mas estamos trabalhando nisso.
+As docs estão disponíveis na pasta docs neste repositório ou por este atalho:
+[Pasta docs](docs)
 
 ## como instalar
 
