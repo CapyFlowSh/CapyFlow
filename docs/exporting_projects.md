@@ -1,4 +1,4 @@
-# Exportando Projeto
+# Exportando Projetos
 
 após ter criado um workflow no capyflow, você pode salvar ele em .capy assim ao fechar o editor o workflow não some.
 
