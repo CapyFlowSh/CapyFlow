@@ -16,8 +16,8 @@ ainda não há docs mas estamos trabalhando nisso.
 
 ## como instalar
 
-baixe o setup.sh deste repositório, abra o terminal na pasta dele e dê os seguintes comandos:
+certifique-se de que tenha o curl e o bash instalado e após o instalar dê o seguinte comando
 ```bash
-chmod +x setup.sh && ./setup.sh
+curl -fsSL https://raw.githubusercontent.com/pixelcatBR/CapyFlow/main/setup.sh | bash
 ```
-faça a instalação e a capy flow deve aparecer como um ícone
+faça a instalação e a capy flow e acesse o IP do server na porta 6060.
