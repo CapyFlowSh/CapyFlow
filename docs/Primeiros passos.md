@@ -1,8 +1,8 @@
-Como criar um projeto
+# Como criar um projeto
 
 Com o CapyFlow, acesse o IP na porta "6060" ("IP:6060") e clique em Criar projeto. Depois, crie seu primeiro projeto.
 
-No editor
+# No editor
 
 Dê uma olhada nos blocos no canto esquerdo. Existem várias categorias disponíveis.
 
