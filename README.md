@@ -8,7 +8,7 @@ O CapyFlow ele é feito APENAS para redes confiáveis(não expostas na internet 
 
 temos támbem um mascote chamado capy, uma capivara que irá te ajudar a usar a ferramenta e irá apresentar os posts oficiais.
 ## Por que "CapyFlow"?
-"Capy" vem do nosso mascote. "Flow" vem de workflow — você monta um fluxo de blocos que vira um script shell.
+"Capy" vem do mascote. "Flow" vem de workflow — você monta workflows de blocos que se transformam em um script shell.
 
 ## licença
 o projeto é MIT, leia o arquivo license para mais detalhes.
