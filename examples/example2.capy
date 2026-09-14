@@ -1,0 +1,27 @@
+{
+  "name": "example2",
+  "tree": [
+    {
+      "type": "cd",
+      "inputs": {
+        "caminho": "~/"
+      },
+      "children": []
+    },
+    {
+      "type": "set",
+      "inputs": {
+        "nome": "mensagem",
+        "valor": "hello world"
+      },
+      "children": []
+    },
+    {
+      "type": "echo",
+      "inputs": {
+        "texto": "$mensagem"
+      },
+      "children": []
+    }
+  ]
+}
