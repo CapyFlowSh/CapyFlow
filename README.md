@@ -2,14 +2,6 @@
 ![logo do capy](logo.png)
 CapyFlow é uma ferramenta web que permite a criação visual de shellscripts em servidores LAN. ele vem com uma interface simples de usar e baseada em blocos.
 
-## Aviso
-O CapyFlow ele é feito APENAS para redes confiáveis(não expostas na internet por exemplo) e LAN.
-## Capy
-
-temos támbem um mascote chamado capy, uma capivara que irá te ajudar a usar a ferramenta e irá apresentar os posts oficiais.
-## Por que "CapyFlow"?
-"Capy" vem do mascote. "Flow" vem de workflow — você monta workflows de blocos que se transformam em um script shell.
-
 ## Capturas de tela do CapyFlow
 
 ### foto 1
@@ -20,6 +12,15 @@ temos támbem um mascote chamado capy, uma capivara que irá te ajudar a usar a 
 
 ### foto 3
 ![foto 3](screenshots/Screenshot_20260914_125922.png)
+
+## Aviso
+O CapyFlow ele é feito APENAS para redes confiáveis(não expostas na internet por exemplo) e LAN.
+## Capy
+
+temos támbem um mascote chamado capy, uma capivara que irá te ajudar a usar a ferramenta e irá apresentar os posts oficiais.
+## Por que "CapyFlow"?
+"Capy" vem do mascote. "Flow" vem de workflow — você monta workflows de blocos que se transformam em um script shell.
+
 ## licença
 o projeto é MIT, leia o arquivo license para mais detalhes.
 
