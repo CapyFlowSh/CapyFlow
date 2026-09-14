@@ -1,0 +1,54 @@
+{
+  "name": "example3.capy",
+  "tree": [
+    {
+      "type": "cd",
+      "inputs": {
+        "caminho": "~/"
+      },
+      "children": []
+    },
+    {
+      "type": "mkdir",
+      "inputs": {
+        "nome": "meus_vídeos"
+      },
+      "children": []
+    },
+    {
+      "type": "mkdir",
+      "inputs": {
+        "nome": "minhas_fotos"
+      },
+      "children": []
+    },
+    {
+      "type": "mkdir",
+      "inputs": {
+        "nome": "minhas_músicas"
+      },
+      "children": []
+    },
+    {
+      "type": "mkdir",
+      "inputs": {
+        "nome": "meus_downloads"
+      },
+      "children": []
+    },
+    {
+      "type": "mkdir",
+      "inputs": {
+        "nome": "meus_documentos"
+      },
+      "children": []
+    },
+    {
+      "type": "mkdir",
+      "inputs": {
+        "nome": "meus_projetos"
+      },
+      "children": []
+    }
+  ]
+}
