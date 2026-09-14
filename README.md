@@ -10,6 +10,16 @@ temos támbem um mascote chamado capy, uma capivara que irá te ajudar a usar a 
 ## Por que "CapyFlow"?
 "Capy" vem do mascote. "Flow" vem de workflow — você monta workflows de blocos que se transformam em um script shell.
 
+## Capturas de tela do CapyFlow
+
+### foto 1
+![foto 1](screenshots/Screenshot_20260914_125457.png)
+
+### foto 2
+![foto 2](screenshots/Screenshot_20260914_125757.png)
+
+### foto 3
+![foto 3](screenshots/Screenshot_20260914_125922.png)
 ## licença
 o projeto é MIT, leia o arquivo license para mais detalhes.
 
