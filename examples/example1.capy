@@ -1,0 +1,21 @@
+{
+  "name": "example1.capy",
+  "tree": [
+    {
+      "type": "for",
+      "inputs": {
+        "var": "i",
+        "lista": "1 2 3 4 5"
+      },
+      "children": [
+        {
+          "type": "echo",
+          "inputs": {
+            "texto": "$i"
+          },
+          "children": []
+        }
+      ]
+    }
+  ]
+}
